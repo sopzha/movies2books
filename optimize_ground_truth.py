@@ -12,12 +12,12 @@ def timestamp_to_seconds(timestamp):
 
 def compute_ground_truth(book_name):
     
-    original_ground_truth = json.load(open('./{}/ground_truth_annotation.json'.format(book_name)))
+    original_ground_truth = json.load(open(f'./{book_name}/ground_truth_annotation.json'))
     
-    image_features = np.asarray(np.load('./{}/frame_features.npy'.format(book_name)).T, dtype = np.float64)
+    image_features = np.asarray(np.load(f'./{book_name}/frame_features.npy').T, dtype = np.float64)
     image_features /= np.linalg.norm(image_features, axis=0, keepdims=True)
     
-    text_features = np.asarray(np.load('./{}/sentence_features.npy'.format(book_name)).T, dtype = np.float64)
+    text_features = np.asarray(np.load(f'./{book_name}/sentence_features.npy').T, dtype = np.float64)
     text_features /= np.linalg.norm(text_features, axis=0, keepdims=True)
     
     number_frames = image_features.shape[1]
@@ -63,8 +63,8 @@ def compute_ground_truth(book_name):
         
     plt.plot(original_alignment_scores)
     plt.plot(new_alignment_scores)
-    plt.savefig('./{}/frame_sentence_ground_truth_comparison.png'.format(book_name))
+    plt.savefig(f'./{book_name}/frame_sentence_ground_truth_comparison.png')
         
-    np.save('./{}/frame_sentence_ground_truth_mapping.npy'.format(book_name), new_ground_truth)
+    np.save(f'./{book_name}/frame_sentence_ground_truth_mapping.npy', new_ground_truth)
     
 compute_ground_truth('The_Shawshank_Redemption')

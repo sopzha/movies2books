@@ -6,7 +6,7 @@ class Book:
     
     def __init__(self, book_name):
         self.book_name = book_name
-        self.book = scipy.io.loadmat('./{}/book.mat'.format(book_name))['book']
+        self.book = scipy.io.loadmat('../data/{}/book.mat'.format(book_name))['book']
         
     def get_word(self, sentence_id, word_id):
         num_words = int(self.book['sentences'].item()[sentence_id]['n_words'])
