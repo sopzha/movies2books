@@ -2,7 +2,7 @@ import json
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+ 
 FRAME_NEIGHBORHOOD = 10
 SENTENCE_NEIGHBORHOOD = 10
 
