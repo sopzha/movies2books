@@ -1,4 +1,4 @@
-iport torch
+import torch
 import clip
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
